@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_27_013946) do
+ActiveRecord::Schema.define(version: 2021_10_27_182610) do
+
+  create_table "infos", force: :cascade do |t|
+    t.string "request_types"
+    t.string "unique_users"
+    t.string "most_resource"
+    t.string "most_user"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "logs", force: :cascade do |t|
     t.string "ip_address"
     t.string "url"
-    t.string "method"
+    t.string "method_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

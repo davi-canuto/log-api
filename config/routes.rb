@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :infos do
+    collection do
+      post 'new_infos'
+    end
+  end
   resources :logs do
     collection do
       post 'upload_batch'

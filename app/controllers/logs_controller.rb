@@ -14,7 +14,7 @@ class LogsController < ApplicationController
   end
 
 
-  # POST /upload_batch
+  # POST /logs/upload_batch
 
 
   def upload_batch
@@ -25,7 +25,7 @@ class LogsController < ApplicationController
         Log.create!(
           ip_address: parts[:ip],
           url: parts[:url_line],
-          method: parts[:method_line]
+          method_name: parts[:method_line]
         )
         end
       end
@@ -65,6 +65,6 @@ class LogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def log_params
-      params.require(:log).permit(:ip_address, :url, :method)
+      params.require(:log).permit(:ip_address, :url, :method_name)
     end
 end

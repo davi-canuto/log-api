@@ -12,7 +12,7 @@ class InfosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create info" do
     assert_difference('Info.count') do
-      post infos_url, params: { info: { most_ip: @info.most_ip, most_resource: @info.most_resource, request_types: @info.request_types, unique_users: @info.unique_users } }, as: :json
+      post infos_url, params: { info: { most_resource: @info.most_resource, most_user: @info.most_user, request_types: @info.request_types, unique_users: @info.unique_users } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class InfosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update info" do
-    patch info_url(@info), params: { info: { most_ip: @info.most_ip, most_resource: @info.most_resource, request_types: @info.request_types, unique_users: @info.unique_users } }, as: :json
+    patch info_url(@info), params: { info: { most_resource: @info.most_resource, most_user: @info.most_user, request_types: @info.request_types, unique_users: @info.unique_users } }, as: :json
     assert_response 200
   end
 
