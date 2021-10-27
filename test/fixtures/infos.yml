@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  request_types: 
+  unique_users: 
+  most_resource: MyString
+  most_ip: MyString
+
+two:
+  request_types: 
+  unique_users: 
+  most_resource: MyString
+  most_ip: MyString
