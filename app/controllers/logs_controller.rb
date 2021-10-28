@@ -13,25 +13,6 @@ class LogsController < ApplicationController
     render json: @log
   end
 
-
-  # POST /logs/upload_batch
-
-
-  def upload_batch
-    if file_line = File.readlines(params[:filename])
-      file_line.each do |line|
-        regex = /\A(?<ip>\S+) \S+ \S+ \[(?<time>[^\]]+)\] "(?<method_line>GET|POST) (?<url_line>\S+) \S+?" (?<status>\d+) (?<bytes>\S+)/
-        if parts = regex.match(line)
-        Log.create!(
-          ip_address: parts[:ip],
-          url: parts[:url_line],
-          method_name: parts[:method_line]
-        )
-        end
-      end
-    end
-  end
-
   # POST /logs
   def create
     @log = Log.new(log_params)
@@ -65,6 +46,6 @@ class LogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def log_params
-      params.require(:log).permit(:ip_address, :url, :method_name)
+      params.require(:log).permit(:name)
     end
 end

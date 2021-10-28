@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_27_182610) do
+ActiveRecord::Schema.define(version: 2021_10_28_052658) do
 
   create_table "infos", force: :cascade do |t|
     t.string "request_types"
@@ -21,12 +21,21 @@ ActiveRecord::Schema.define(version: 2021_10_27_182610) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "logs", force: :cascade do |t|
+  create_table "log_events", force: :cascade do |t|
+    t.integer "log_id", null: false
     t.string "ip_address"
     t.string "url"
-    t.string "method_name"
+    t.string "http_method"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["log_id"], name: "index_log_events_on_log_id"
   end
 
+  create_table "logs", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+  end
+
+  add_foreign_key "log_events", "logs"
 end
