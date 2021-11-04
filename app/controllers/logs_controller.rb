@@ -17,7 +17,7 @@ class LogsController < ApplicationController
   def create
     @log = Log.new(log_params)
 
-    if @log.save
+    if @log.save && @log.plot_log_events
       render json: @log, status: :created, location: @log
     else
       render json: @log.errors, status: :unprocessable_entity
@@ -46,6 +46,6 @@ class LogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def log_params
-      params.require(:log).permit(:name)
+      params.require(:log).permit(:name, :file)
     end
 end
