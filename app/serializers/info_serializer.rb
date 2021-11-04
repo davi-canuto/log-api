@@ -11,9 +11,6 @@
 #  updated_at    :datetime         not null
 #
 class InfoSerializer < ActiveModel::Serializer
-  attributes :id, :request_types, :unique_users, :most_resource, :most_user, :author
+  attributes :id, :request_types, :unique_users, :most_resource, :most_user
 
- def author
-  "davi"
- end
 end

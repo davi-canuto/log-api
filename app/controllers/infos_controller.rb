@@ -17,8 +17,13 @@ class InfosController < ApplicationController
   # POST /infos/new_infos
 
   def new_infos
+    info = []
+    info.append({:unique_users => Info.task_qtd_unique_users})
+    info.append(:request_types => Info.task_qtd_request_types)
+    info.append(:most_user => Info.task_most_accessed_ip)
+    info.append(:most_resource => Info.task_most_accessed_url)
+    render json: info
   end
-
 
 
   # POST /infos
