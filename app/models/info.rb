@@ -21,6 +21,7 @@ class Info < ApplicationRecord
     return arr_methods.uniq.length
   end
 
+  #teste
   def self.task_qtd_unique_users
     unique_users = Array.new
     arr_users = Array.new
