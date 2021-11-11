@@ -57,4 +57,5 @@ class Info < ApplicationRecord
     freq = arr_url.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
     arr_url.max_by { |v| freq[v] }
   end
+  #test
 end
